@@ -18,12 +18,11 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 		}
 	}
 
-	public class LoginArea : WebBlock
+	public class LoginArea : Block
 	{
-		public LoginArea(Session session) : base(session)
-		{
-			Tag = GetElement(By.Id("login_login-main"));
-		}
+        public LoginArea(Session session)
+            : base(session, By.Id("login_login-main"))
+		{}
 
 		public ITextField<LoginArea> Email
 		{

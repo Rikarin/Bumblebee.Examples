@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using Bumblebee.Extensions;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
@@ -19,8 +20,10 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 		{
 			get
 			{
-				return GetElements(By.CssSelector("#siteTable .link"))
-					.Select(tag => new Post(Session, tag));
+			    this.Pause(500);
+			    return new BlockEnumerable<Post>(this, By.CssSelector("#siteTable .link"));
+				//return GetElements(By.CssSelector("#siteTable .link"))
+				//	.Select(tag => new Post(Session, tag));
 			}
 		}
 
@@ -43,9 +46,14 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 		{
 			get
 			{
-				return GetElements(By.CssSelector("#sr-bar a"))
+			    return new ElementEnumerable<Clickable<RedditPage>>(this, By.CssSelector("#sr-bar a"))
+			        .Where(a => a.Tag.Displayed);
+
+                /*
+				return FindElements(By.CssSelector("#sr-bar a"))
 					.Where(a => a.Displayed)
 					.Select(a => new Clickable<RedditPage>(this, a));
+                */
 			}
 		}
 	}

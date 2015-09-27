@@ -7,15 +7,18 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class TaskRow : SpecificBlock
+	//public class TaskRow : SpecificBlock
+    public class TaskRow : Block
 	{
-		public TaskRow(Session session, IWebElement tag) : base(session, tag)
-		{
-		}
+		//public TaskRow(Session session, IWebElement tag) : base(session, tag)
+        public TaskRow(IBlock parent, By by)
+            : base(parent, by)
+        { }
 
 		public string Name
 		{
-			get { return GetElement(By.CssSelector("span.name.edittask")).Text; }
+			//get { return GetElement(By.CssSelector("span.name.edittask")).Text; }
+            get { return FindElement(By.CssSelector("span.name.edittask")).Text; }
 		}
 
 		public IClickable<TaskRow> Complete
@@ -25,7 +28,8 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 
 		public void Delete()
 		{
-			var drag = GetElement(By.CssSelector("span.i.drag.project"));
+			//var drag = GetElement(By.CssSelector("span.i.drag.project"));
+            var drag = FindElement(By.CssSelector("span.i.drag.project"));
 			var drop = new SideBar(Session).Trash;
 
 			GetDragAndDropPerformer()

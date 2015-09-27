@@ -130,6 +130,14 @@
             <returns></returns>
             <exception cref="T:Bumblebee.Exceptions.VerificationException">Selection verification failed. Expected: {0}, Actual: {1}..FormatWith(selected, selectable.Selected)</exception>
         </member>
+        <member name="T:Bumblebee.Implementation.InlineFrame">
+            <summary>
+            This represents an &lt;iframe&gt; element.
+            </summary>
+            <remarks>
+            Note that for the <see cref="P:Bumblebee.Implementation.InlineFrame.Tag"/> property, we make the assumption that the page inside the frame has a &lt;body&gt; element.
+            </remarks>
+        </member>
         <member name="T:Bumblebee.Interfaces.IDateField">
             <summary>
             An input[type='date'] in a browser.
@@ -139,7 +147,7 @@
             <summary>
             Enters a date into the date field
             </summary>
-            <typeparam name="TCustomResult">The type of the block this element is on.</typeparam>
+            <typeparam name="TResult">The type of the block this element is on.</typeparam>
             <param name="date">The date to enter</param>
             <returns>The current block</returns>
         </member>
@@ -164,17 +172,6 @@
             <param name="date">The date to enter</param>
             <returns>The current block</returns>
         </member>
-        <member name="T:Bumblebee.Interfaces.IDoubleClickable">
-            <summary>
-            Element that is double-clickable with a static page return.
-            </summary>
-        </member>
-        <member name="T:Bumblebee.Interfaces.IDoubleClickable`1">
-            <summary>
-            Element that is double-clickable with a dynamic page return.
-            </summary>
-            <typeparam name="TResult">The type of page to return.</typeparam>
-        </member>
         <member name="T:Bumblebee.Interfaces.INumericField">
             <summary>
             An input[type='number'] in a browser.
@@ -184,7 +181,7 @@
             <summary>
             Enters a number into the number field
             </summary>
-            <typeparam name="TCustomResult">The type of the block this element is on.</typeparam>
+            <typeparam name="TResult">The type of the block this element is on.</typeparam>
             <param name="number">The number to enter</param>
             <returns>The current block</returns>
         </member>
@@ -234,6 +231,17 @@
             <summary>
             A common wait timeout that can be used when trying to find elements within derived pages or blocks.
             </summary>
+        </member>
+        <member name="T:Bumblebee.Interfaces.IDoubleClickable">
+            <summary>
+            Element that is double-clickable with a static page return.
+            </summary>
+        </member>
+        <member name="T:Bumblebee.Interfaces.IDoubleClickable`1">
+            <summary>
+            Element that is double-clickable with a dynamic page return.
+            </summary>
+            <typeparam name="TResult">The type of page to return.</typeparam>
         </member>
         <member name="T:Bumblebee.BumblebeeAttribute">
             <summary>

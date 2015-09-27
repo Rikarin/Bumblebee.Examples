@@ -1,15 +1,16 @@
 ﻿using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
 
 using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Reddit
 {
-	public class Post : SpecificBlock
+	//public class Post : SpecificBlock
+    public class Post : Block
 	{
-		public Post(Session session, IWebElement tag) : base(session, tag)
-		{
+		//public Post(Session session, IWebElement tag) : base(session, tag)
+		public Post(IBlock parent, By by) : base(parent, by)
+        {
 		}
 
 		public IClickable<WebBlock> Title
@@ -39,7 +40,8 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 
 		public string Rank
 		{
-			get { return GetElement(By.ClassName("rank")).Text; }
+            //get { return GetElement(By.ClassName("rank")).Text; }
+			get { return FindElement(By.ClassName("rank")).Text; }
 		}
 	}
 }

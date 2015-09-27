@@ -52,15 +52,16 @@ namespace Bumblebee.Examples.Web.IntegrationTests
         {
         }
 
-        public TablesRow(IBlock parent, IWebElement tag) : base(parent, tag)
-        {
-        }
+        //public TablesRow(IBlock parent, IWebElement tag) : base(parent, tag)
+        //{
+        //}
 
         public int Id
         {
             get
             {
-                var text = GetElements(By.TagName("td"))
+                //var text = GetElements(By.TagName("td"))
+                var text = FindElements(By.TagName("td"))
                     .ElementAt(0)
                     .Text;
 
@@ -72,7 +73,8 @@ namespace Bumblebee.Examples.Web.IntegrationTests
         {
             get
             {
-                return GetElements(By.TagName("td"))
+                //return GetElements(By.TagName("td"))
+                return FindElements(By.TagName("td"))
                     .ElementAt(1)
                     .Text;
             }

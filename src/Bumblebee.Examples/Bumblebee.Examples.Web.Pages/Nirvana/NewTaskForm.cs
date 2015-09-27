@@ -6,11 +6,15 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class NewTaskForm : WebBlock
-	{
-		public NewTaskForm(Session session) : base(session)
+	//public class NewTaskForm : WebBlock
+
+    public class NewTaskForm : Block
+    {
+		//public NewTaskForm(Session session) : base(session)
+        public NewTaskForm(Session session)
+            : base(session, By.ClassName("promptnewtask"))
 		{
-			Tag = GetElement(By.ClassName("promptnewtask"));
+			//Tag = GetElement(By.ClassName("promptnewtask"));
 		}
 
 		public ITextField<NewTaskForm> Name

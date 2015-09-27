@@ -6,11 +6,12 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class ToolBar : WebBlock
+	//public class ToolBar : WebBlock
+    public class ToolBar : Block
 	{
-		public ToolBar(Session session) : base(session)
+		public ToolBar(Session session) : base(session, By.Id("north"))
 		{
-			Tag = GetElement(By.Id("north"));
+			//Tag = GetElement(By.Id("north"));
 		}
 
 		public ITextField<ToolBar> SearchField

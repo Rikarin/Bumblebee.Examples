@@ -9,10 +9,11 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 	public class LoggedInPage : WebBlock
 	{
 		public LoggedInPage(Session session)
-			: base(session)
+            : base(session)
 		{
-			Wait.Until(driver => driver.GetElement(By.Id("north")));
-			Tag = Session.Driver.GetElement(By.TagName("body"));
+			//Wait.Until(driver => driver.GetElement(By.Id("north")));
+            Wait.Until(driver => driver.FindElement(By.Id("north")));
+			//Tag = Session.Driver.GetElement(By.TagName("body"));
 		}
 
 		public ToolBar ToolBar
